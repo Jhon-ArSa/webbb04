@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evitar scroll */
+}
+
+.night {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Cubrir todo el fondo */
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-image: url('./assets/Img_1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.surface {
+    width: 500%;
+    height: 140px;
+    background: url('./assets/Img_02.png');
+    position: absolute;
+    background-repeat: repeat-x;
+    bottom: 0px;
+    left: 0px;
+    animation: road 6s linear infinite;
+}
+
+.car {
+    position: absolute;
+    bottom: 40px;
+    left: 24%;
+    animation: suspension 1s linear infinite;
+}
+
+@keyframes road {
+    100% {
+        transform: translateX(-2950px);
+    }
+}
+
+@keyframes suspension {
+    100% {
+        transform: translateY(-2px);
+    }
+    50% {
+        transform: translateY(1px);
+    }
+    0% {
+        transform: translateY(-2px);
+    }
+}
+
+.overlay {
+    position: relative; /* Para mantener el texto sobre el fondo */
+    z-index: 1; /* Asegura que el contenido esté sobre el fondo */
+    color: azure;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ajustar al 100% de la ventana */
+}
+
+.greetings {
+    font-size: 7rem;
+    font-weight: 900;
+    animation: slideIn 0.8s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.greetings > span {
+    animation: glow 2.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%,
+    100% {
+        color: #fff;
+        text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
+    }
+    10%,
+    90% {
+        color: #111;
+        text-shadow: none;
+    }
+}
+
+.greetings > span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.greetings > span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.greetings > span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.greetings > span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+.greetings > span:nth-child(6) {
+    animation-delay: 1s;
+}
+
+.description {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.3);
+}
+
+.button a {
+    font-size: 1rem;
+    color: #111;
+}
+
+.botones {
+    padding: 9px;
+    border-radius: 80px;
+    background-color: transparent;
+    border: none;
+}
+
+.botones a {
+    background-color: #87c9e2;
+    padding: 9px;
+    border-radius: 80px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.botones a:hover {
+    background-color: #66b8d9;
+    transform: scale(1.05);
+}
+
+.botones a:focus {
+    background-color: rgb(50, 194, 194);
+}
+
+@media screen and (max-width: 574px) {
+    .greetings {
+        font-size: 5rem;
+        font-weight: 800;
+        text-align: center;
+    }
+    .description {
+        font-size: 2rem;
+    }
+}
